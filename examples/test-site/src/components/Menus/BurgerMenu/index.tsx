@@ -29,21 +29,24 @@ import {
   SingleAccordionClean,
   withBurgerSubmenu,
 } from '@bodiless/organisms';
-import { asEditable, List } from '@bodiless/components';
+import { List } from '@bodiless/components';
 import { asMobileOnly } from '../../Elements.token';
 import './burger-menu.css';
+import {
+  withEditorSimple,
+} from '../../Editors';
 
 const defaultTopMenuLinksStyles = flow(
   addClasses('text-black'),
 );
 
 const EditableLinkList = flow(
-  asEditableMenu(asEditable),
+  asEditableMenu(withEditorSimple),
   defaultTopMenuLinksStyles,
 )(List);
 
 const BurgerSubMenu = flow(
-  asEditableBurgerSubMenu('Overview', asEditable),
+  asEditableBurgerSubMenu('Overview', withEditorSimple),
   withDesign({
     Wrapper: replaceWith(Li),
     TitleWrapper: addClasses('font-bold text-black'),

@@ -20,7 +20,6 @@ import {
   withDesign,
 } from '@bodiless/fclasses';
 import {
-  asEditable,
   List,
 } from '@bodiless/components';
 import {
@@ -31,6 +30,9 @@ import {
   withSubmenu,
 } from '@bodiless/organisms';
 import { asExceptMobile } from '../Elements.token';
+import {
+  withEditorSimple,
+} from '../Editors';
 
 const asWhiteColoredLink = flow(
   removeClasses('bl-text-primary hover:bl-underline'),
@@ -41,12 +43,12 @@ const withLinkStyles = withDesign({
   ActiveLink: flow(asWhiteColoredLink, withActivePageStyles),
   Link: asWhiteColoredLink,
 });
-const withMenuStyles = addClasses('hover:bg-teal-500 text-white text-left min-w-100 leading-loose text-sm px-2');
+const withMenuStyles = addClasses('hover:bg-teal-500 text-white text-left leading-loose text-sm px-4');
 const withTealBackground = addClasses('bg-teal-600');
 const withLimitedHeightStyles = addClasses('overflow-y-hidden max-h-menu-row');
-const withSubmenuStyles = addClasses('-ml-2');
+const withSubmenuStyles = addClasses('-ml-4');
 const MenuSubList = flow(
-  asEditableMainSubMenu(asEditable),
+  asEditableMainSubMenu(withEditorSimple),
   asHorizontalSubMenu,
   withDesign({
     Title: withLinkStyles,
@@ -63,7 +65,7 @@ const MenuSubList = flow(
 )(List);
 
 const MenuList = flow(
-  asEditableMainMenu(asEditable),
+  asEditableMainMenu(withEditorSimple),
   asHorizontalMenu,
   withDesign({
     Title: withLinkStyles,
