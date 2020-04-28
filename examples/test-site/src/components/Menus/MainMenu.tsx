@@ -14,9 +14,7 @@
 import React from 'react';
 import { flow } from 'lodash';
 import {
-  addClasses,
   addProps,
-  removeClasses,
   withDesign,
 } from '@bodiless/fclasses';
 import {
@@ -33,52 +31,23 @@ import { asExceptMobile } from '../Elements.token';
 import {
   withEditorSimple,
 } from '../Editors';
+import { asStyleMenu, asStyleTopMenu } from './token'
 
-const asWhiteColoredLink = flow(
-  removeClasses('bl-text-primary hover:bl-underline'),
-  addClasses('text-white'),
-);
-const withActivePageStyles = addClasses('bg-teal-500');
-const withLinkStyles = withDesign({
-  ActiveLink: flow(asWhiteColoredLink, withActivePageStyles),
-  Link: asWhiteColoredLink,
-});
-const withMenuStyles = addClasses('hover:bg-teal-500 text-white text-left leading-loose text-sm px-4');
-const withTealBackground = addClasses('bg-teal-600');
-const withLimitedHeightStyles = addClasses('overflow-y-hidden max-h-menu-row');
-const withSubmenuStyles = addClasses('-ml-4');
+
 const MenuSubList = flow(
   asEditableMainSubMenu(withEditorSimple),
   asHorizontalSubMenu,
-  withDesign({
-    Title: withLinkStyles,
-    Wrapper: flow(
-      withTealBackground,
-      withMenuStyles,
-    ),
-    Item: flow(
-      withMenuStyles,
-      withTealBackground,
-      withSubmenuStyles,
-    ),
-  }),
+  asStyleMenu,
 )(List);
 
 const MenuList = flow(
   asEditableMainMenu(withEditorSimple),
   asHorizontalMenu,
   withDesign({
-    Title: withLinkStyles,
-    Wrapper: flow(
-      withTealBackground,
-      addProps({ overflowedIndicator: <span className="text-white">...</span> }),
-      withLimitedHeightStyles,
-    ),
-    Item: flow(
-      withTealBackground,
-      withMenuStyles,
-    ),
+    Wrapper: addProps({ overflowedIndicator: <span className="text-white">...</span> }),
   }),
+  asStyleMenu,
+  asStyleTopMenu,
   asExceptMobile,
 )(List);
 
