@@ -38,7 +38,7 @@ const withSubmenuStyles = addClasses('-ml-4');
 const withBurgerMenuHeader = addClasses('bg-white py-4');
 const withBurgerMenuTextStyles = addClasses('text-white text-base');
 const withBurgerDropdownBackground = addClasses('bg-teal-600');
-const withLimitedHeightStyles = addClasses('overflow-y-hidden max-h-menu-row');
+// const withLimitedHeightStyles = addClasses('overflow-y-hidden max-h-menu-row');
 
 const withLinkStyles = withDesign({
   ActiveLink: flow(asWhiteColoredLink, withMenuBackground),
@@ -53,7 +53,7 @@ const asStyleMenu = withDesign({
   Item: flow(
     withMenuStyles,
     withMenuBackground,
-    //withMenuHoverStyles,
+    withMenuHoverStyles,
     withSubmenuStyles,
   ),
 });
@@ -61,7 +61,6 @@ const asStyleMenu = withDesign({
 const asStyleTopMenu = withDesign({
   Wrapper: flow(
     withMenuBackground,
-    withLimitedHeightStyles,
   ),
 });
 
@@ -78,7 +77,7 @@ const asBurgerMenuDefaultStyle = withDesign({
   Body: addClasses('p-3'),
 });
 
-const asOpenBurgerMenuDefaultStyle =  withDesign({
+const asOpenBurgerMenuDefaultStyle = withDesign({
   TitleWrapper: withBurgerMenuTextStyles,
   Body: withDesign({
     Wrapper: addClasses('pl-1'),

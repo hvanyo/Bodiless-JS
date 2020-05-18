@@ -31,8 +31,7 @@ import { asExceptMobile } from '../Elements.token';
 import {
   withEditorSimple,
 } from '../Editors';
-import { asStyleMenu, asStyleTopMenu } from './token'
-
+import { asStyleMenu, asStyleTopMenu } from './token';
 
 const MenuSubList = flow(
   asEditableMainSubMenu(withEditorSimple),

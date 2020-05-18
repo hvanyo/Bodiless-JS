@@ -28,7 +28,7 @@ export default (props: any) => (
         <p className="py-3">
           The following is an editable menu using rc-menu
         </p>
-        <MainMenu nodeKey="list1" className="w-1/2" />
+        <MainMenu nodeKey="list1" />
       </div>
     </Layout>
   </Page>
